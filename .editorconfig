@@ -1,0 +1,6 @@
+root = true
+
+[*.{ts,js}]
+indent_style = tab
+indent_size = 3
+quote_type = single

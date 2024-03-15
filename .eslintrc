@@ -1,0 +1,27 @@
+{
+	"parser": "@babel/eslint-parser",
+	"extends": "eslint:recommended",
+	"env": {
+		"es6": true,
+		"node": true,
+		"browser": true,
+		"jest": true
+	},
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"rules": {
+		"consistent-this": 0,
+		"no-console": 0
+	},
+	"overrides": [
+		{
+			"files": ["tests/**/*"],
+			"env": {
+				"jest": true
+			}
+		}
+	]
+}
