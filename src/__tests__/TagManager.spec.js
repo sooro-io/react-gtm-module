@@ -23,6 +23,23 @@ describe('TagManager', () => {
 		}
 		TagManager.initialize(gtmArgs)
 		expect(window.dataLayer[0]).toEqual(dataLayer)
+		const dataScript = window.document.querySelector('[data-testid="dataLayer"]')
+		expect(dataScript.nonce).toBe('')
+	})
+
+	it('should render datalayer script with nonce', () => {
+		const dataLayer = {
+			userInfo: 'userInfo',
+		}
+		const gtmArgs = {
+			gtmId: 'GTM-xxxxxx',
+			dataLayer,
+			nonce: 'foo',
+		}
+		TagManager.initialize(gtmArgs)
+		expect(window.dataLayer[0]).toEqual(dataLayer)
+		const dataScript = window.document.querySelector('[data-testid="dataLayer"]')
+		expect(dataScript.nonce).toBe('foo')
 	})
 
 	it('should render nonce', () => {
